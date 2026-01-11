@@ -1,4 +1,11 @@
 Shader "Custom/Transparent" {
+	Properties
+	{
+		//色を設定するアトリビュートを作る
+		_alpha("alpha", Range(0,1)) = 1.0
+		_color("color", Color) = (1.0, 1.0, 1.0)
+	}
+
 	SubShader{
 		Tags { "Queue" = "Transparent" }
 		LOD 200
@@ -11,9 +18,11 @@ Shader "Custom/Transparent" {
 			float2 uv_MainTex;
 		};
 
+		float _alpha = 1;
+		fixed4 _color = 1;
 		void surf(Input IN, inout SurfaceOutputStandard o) {
-			o.Albedo = fixed4(0.6f, 0.7f, 0.4f, 1);
-			o.Alpha = 0.6;
+			o.Albedo = _color;
+			o.Alpha = _alpha;
 		}
 		ENDCG
 	}
