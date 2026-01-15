@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class MyCamera : MonoBehaviour
 {
     [Header("追いかける対象")]
     public Transform target;
